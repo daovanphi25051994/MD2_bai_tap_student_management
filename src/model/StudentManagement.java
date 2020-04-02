@@ -5,8 +5,25 @@ import java.util.Scanner;
 
 public class StudentManagement extends Student {
     ArrayList<Student> listStudents = new ArrayList<>();
+    Scanner scanner = new Scanner(System.in);
 
-    public void add(Student student) {
+    public void add() {
+        Student student = new Student();
+        System.out.println("Enter new name : ");
+        student.setName(scanner.nextLine());
+        System.out.println("Enter new gender : ");
+        student.setGender(scanner.nextLine());
+        System.out.println("Enter new birthday : ");
+        student.setBirthday(scanner.nextLine());
+        System.out.println("Enter new address : ");
+        student.setAddress(scanner.nextLine());
+        System.out.println("Enter new id : ");
+        student.setStudentId(scanner.nextLine());
+        System.out.println("Enter new average point : ");
+        student.setAveragePoint(scanner.nextDouble());
+        System.out.println("Enter new email : ");
+        scanner.nextLine();
+        student.setEmail(scanner.nextLine());
         listStudents.add(student);
     }
 
@@ -19,7 +36,6 @@ public class StudentManagement extends Student {
     }
 
     public void setDataStudentById(String id) {
-        Scanner scanner = new Scanner(System.in);
         for (Student student : listStudents) {
             if (student.getStudentId().equals(id)) {
                 System.out.println("Enter new name : ");
@@ -62,7 +78,7 @@ public class StudentManagement extends Student {
 
     public Student getDataStudentByName(String name) {
         for (Student student : listStudents) {
-            if (student.getStudentId().equals(name)) {
+            if (student.getName().equals(name)) {
                 return student;
             }
         }
